@@ -1,29 +1,31 @@
 {
   "name": "hello-ocaml",
   "version": "0.1.0",
-  "description": "OCaml workflow with Esy",
+  "description": "Example Ocaml Esy Project",
   "license": "MIT",
   "esy": {
     "build": "dune build -p #{self.name}",
+    "buildDev": "dune build --promote-install-files --root . --only-package #{self.name}",
+    "NOTE": "Optional release Section. Customizes result of `esy release`",
     "release": {
-      "bin": "hello",
-      "includePackages": [
-        "root",
-        "@opam/camomile"
+      "rewritePrefix": true,
+      "bin": [
+        "Hello"
       ]
     }
   },
   "scripts": {
-    "test": "esy x hello"
+    "test": "esy x Hello",
+    "format": "esy dune build @fmt --auto-promote",
+    "doc": "esy dune build @doc"
   },
   "dependencies": {
     "@opam/dune": "*",
-    "@opam/lambda-term": "*",
-    "@opam/lwt": "^4.0.0",
-    "ocaml": "~4.6.0"
+    "ocaml": "4.14.x"
   },
   "devDependencies": {
-    "@opam/merlin": "^3.0.3",
-    "ocaml": "~4.6.0"
+    "@opam/ocaml-lsp-server": "*",
+    "@opam/odoc": "*",
+    "@opam/ocamlformat": "*"
   }
 }

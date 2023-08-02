@@ -1,4 +1,3 @@
 (library
   (name lib)
-  (public_name hello-ocaml)
-  (libraries lambda-term lwt))
+  (public_name hello-ocaml))

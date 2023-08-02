@@ -1,41 +1,15 @@
-# hello-ocaml
+# "Hello World" Ocaml Esy VSCode dev container template
+(Based on https://github.com/esy-ocaml/hello-reason)
 
-[![Build status](https://ci.appveyor.com/api/projects/status/owyhaxk3ebeb6yq8/branch/master?svg=true)](https://ci.appveyor.com/project/esy/hello-ocaml/branch/master)
-[![Build Status](https://travis-ci.org/esy-ocaml/hello-ocaml.svg?branch=master)](https://travis-ci.org/esy-ocaml/hello-ocaml)
-
-A project which demonstrates an OCaml workflow with [Esy][].
-
-[Esy]: https://github.com/esy-ocaml/esy
-[npm]: https://www.npmjs.com
+A project which demonstrates an OCaml workflow with [Esy](https://esy.sh) and [VSCode](https://code.visualstudio.com)'s [Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial).
+All build dependencies, including Esy, are specified in Dockerfile.
+It is a multistage build, so you can use it to obtain the final executable and for development too.
 
 ## Usage
 
-You need Esy, you can install the beta using [npm][]:
-
-    % npm install -g esy
-
-Then you can install the project dependencies using:
-
-    % esy install
-
-Then build the project dependencies along with the project itself:
-
-    % esy build
-
-Now you can run your editor within the environment (which also includes merlin):
-
-    % esy $EDITOR
-    % esy vim
-
-After you make some changes to source code, you can re-run project's build
-using:
-
-    % esy build
-
-And test compiled executable:
-
-    % esy ./_build/default/bin/hello.exe
-
-Shell into environment:
-
-    % esy shell
+1. Install [rootless](https://docs.docker.com/engine/security/rootless/) or [non-root](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) [Docker](https://www.docker.com) and VSCode;
+2. Install [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers);
+3. Download or clone the repository and open it in the editor;
+4. Reopen in dev container and wait for it to finish the build;
+5. Run esy inside the container to install languages server for development and build the project.
+Packages will cached into a local .esy folder.

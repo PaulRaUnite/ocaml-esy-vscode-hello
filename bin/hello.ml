@@ -1,2 +1,1 @@
-let () =
-  Lwt_main.run (Lib.Util.hello ())
+let _ = print_endline "Hello world!"
