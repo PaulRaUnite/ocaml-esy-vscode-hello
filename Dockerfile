@@ -5,6 +5,7 @@ RUN apt update && apt install -y m4 autoconf git npm curl && apt-get clean
 RUN npm install -g esy
 
 FROM dev
-WORKDIR /workspaces/hello-ocaml/
+WORKDIR /workspaces/project/
+COPY . /workspaces/project/
 RUN esy
-ENTRYPOINT [ "esy x hello" ]
+ENTRYPOINT [ "esy", "x" ,"hello" ]
